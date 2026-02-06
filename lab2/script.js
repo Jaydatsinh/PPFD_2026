@@ -1,12 +1,15 @@
-function scrollToContact() {
-    document.getElementById("contact").scrollIntoView({
-        behavior: "smooth"
+// Skill animation on scroll
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".progress").forEach(bar => {
+        const barTop = bar.getBoundingClientRect().top;
+        if (barTop < window.innerHeight) {
+            bar.style.width = bar.dataset.width;
+        }
     });
-}
+});
 
-// Simple form submit message
-document.querySelector("form").addEventListener("submit", function (e) {
+// Contact form submit
+document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    alert("Thank you! Your message has been sent.");
-    this.reset();
+    alert("Message sent successfully!");
 });
